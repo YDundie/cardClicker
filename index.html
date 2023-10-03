@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Import global.css -->
+    <link rel="stylesheet" href="./global.css">
+</head>
+<body>
+    <div class="card">
+        <!-- display checkmark image -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Eo_circle_light-blue_checkmark.svg/800px-Eo_circle_light-blue_checkmark.svg.png" alt="" class="checkmark">
+        <!-- // display random image in the backgroun -->
+        <img src="https://source.unsplash.com/random/200x400" alt="" class="bgImage">
+    </div>
+    
+</body>
+
+<script>
+    // on click image get new image
+    document.querySelector('.bgImage').addEventListener('click', () => {
+        // wait for the image to load before starting the rotation
+     
+             // dealy getting of new image for 1 second
+             setTimeout(() => {
+                document.querySelector('.bgImage').src = `https://source.unsplash.com/random/200x400?sig=${Math.floor(Math.random() * 1000)}`;
+            }, 1000);
+
+            document.querySelector('.checkmark').classList.toggle('active');
+            document.querySelector('.bgImage').classList.toggle('bgSelected');
+
+            //add timeout to delay the rotation
+
+        document.querySelector('.bgImage').onload = () => {
+            document.querySelector('.bgImage').classList.toggle('rotate');
+            // delay 1 second
+            document.querySelector('.checkmark').classList.toggle('active');
+            document.querySelector('.bgImage').classList.toggle('bgSelected');
+
+          
+        }
+
+    
+   
+    });
+
+
+    // document.querySelector('.bgImage').src = `https://source.unsplash.com/random/200x400?sig=${Math.floor(Math.random() * 1000)}`;
+    //     document.querySelector('.checkmark').classList.toggle('active');
+    //     // delay 1 second
+    //     setTimeout(() => {
+    //         document.querySelector('.bgImage').classList.toggle('rotate');
+    //         document.querySelector('.checkmark').classList.toggle('active');
+    //     }, 1200);
+</script>
+</html>
